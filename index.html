@@ -9,10 +9,10 @@
   </head>
   <body>
     <div id="firebaseui-auth-container"></div>
-    <a-scene id="scene" fog="color: #fff; near: 0.45; far:0.6">
+    <a-scene id="scene" fog="color: #fff; near: 0.45; far:2.0">
       <a-sky color="#fff"></a-sky>
-      <a-camera 
-        id="camera" 
+      <a-camera
+        id="camera"
         wasd-controls="acceleration: 5; fly:true"
         position="0 0 0"
         ></a-camera>
@@ -23,14 +23,14 @@
       <a-ring color="tomato" radius-inner="0.5" radius-outer="0.51" rotation="-90 0 0"></a-ring>
       <a-sphere
         id="pensphere"
-        color="red" 
-        radius="0.001" 
+        color="red"
+        radius="0.001"
         material="opacity: 0.7"
         ></a-sphere>
       <a-sphere
         id="penspheresecondary"
-        color="red" 
-        radius="0.001" 
+        color="red"
+        radius="0.001"
         material="opacity: 0.7"
         ></a-sphere>
     </a-scene>
@@ -38,7 +38,7 @@
   </body>
 </html>
 
-<!-- 
+<!--
 
 fog="color: #eee; near: 0.1; far:0.8"
 
@@ -54,14 +54,14 @@ fog="color: #eee; near: 0.4; far:0.6w"
         wasd-controls="acceleration: 10; easing: 40; fly: false"
 
 
-      <a-cone 
+      <a-cone
         id="pensphere"
-        height="0.01" 
+        height="0.01"
         rotation="-90 0 0"
         position="0 0 0.005"
-        color="black" 
-        radius-bottom="0.002" 
-        radius-top="0.0001" 
+        color="black"
+        radius-bottom="0.002"
+        radius-top="0.0001"
         material="opacity: 0.5"
         ></a-cone>
 

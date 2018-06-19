@@ -3,7 +3,7 @@ import * as firebase from 'firebase'
 import * as firebaseui from 'firebaseui'
 import _ from 'lodash'
 import $ from 'jquery'
-
+/*
 firebase.initializeApp({
   apiKey: "AIzaSyB0xMSr_6jAO26pkIvUKOSq4gqsrCix1J8",
   authDomain: "normanmultitrack.firebaseapp.com",
@@ -12,6 +12,19 @@ firebase.initializeApp({
   storageBucket: "normanmultitrack.appspot.com",
   messagingSenderId: "160459918557"
 })
+*/
+
+
+// Initialize Firebase
+var config = {
+    apiKey: "AIzaSyDCW4DA6l7tPviT2ikn9tCpGSOB208Ldn4",
+    authDomain: "norman-b171e.firebaseapp.com",
+    databaseURL: "https://norman-b171e.firebaseio.com",
+    projectId: "norman-b171e",
+    storageBucket: "norman-b171e.appspot.com",
+    messagingSenderId: "291019042355"
+  };
+  firebase.initializeApp(config)
 
 // let currentFileInfo = null
 
@@ -41,7 +54,7 @@ const save = (animData, fileInfo) => {
       upload(fileInfo.filename)
     }
 
-  })  
+  })
 
 }
 
@@ -68,7 +81,7 @@ const getRandomUniqueName = () => {
     })
   }).then(name => {
     return !name ?
-      getRandomUniqueName() : 
+      getRandomUniqueName() :
       name
   })
 }
@@ -86,7 +99,7 @@ const loadPrev = (fileInfo) => {
         const currentIndex = _.findIndex(fileInfos, fi => fi.filename === fileInfo.filename)
         if (currentIndex === fileInfos.length - 1) {
           fileInfo = _.first(fileInfos)
-        } else { 
+        } else {
           fileInfo = _.nth(fileInfos, currentIndex + 1)
         }
       }
@@ -107,7 +120,7 @@ const loadNext = (fileInfo) => {
         const currentIndex = _.findIndex(fileInfos, fi => fi.filename === fileInfo.filename)
         if (currentIndex === fileInfos.length - 1) {
           fileInfo = _.first(fileInfos)
-        } else { 
+        } else {
           fileInfo = _.nth(fileInfos, currentIndex + 1)
         }
       }
@@ -186,32 +199,3 @@ export {
   loadNext,
   deleteComp
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

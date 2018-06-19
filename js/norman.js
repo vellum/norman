@@ -55,11 +55,11 @@ AFRAME.registerComponent('norman', {
     _.delay(() => {
       this.setupControllers()
       // this.fileLoadPrev()
-      // this.buildComp(hearts.compData)
+       this.buildComp()
       window.lbn = window.loadByName = this.fileLoadByName.bind(this)
-      window.lbn('trulmy-prunt-squeefs')
+      //window.lbn('trulmy-prunt-squeefs')
 
-    }, 1) 
+    }, 1)
 
 
   },
@@ -71,12 +71,12 @@ AFRAME.registerComponent('norman', {
   setupKeyboard() {
     document.addEventListener('keydown', e => {
       console.log('keydown: ', e)
-      if (e.code == 'Enter') {this.togglePlay()} 
-      // if (e.code == 'Space') {this.fileLoadPrev()} 
+      if (e.code == 'Enter') {this.togglePlay()}
+      // if (e.code == 'Space') {this.fileLoadPrev()}
       else if (e.key == 'ArrowLeft' && e.altKey && e.shiftKey) {this.fileLoadPrev(!e.ctrlKey)}
 
       // secret key shortcut for setReg
-      else if (e.code == 'Space' && e.altKey && e.shiftKey) {this.setReg()} 
+      else if (e.code == 'Space' && e.altKey && e.shiftKey) {this.setReg()}
       // need to manually save and refresh after doing this for now...
 
     })
@@ -128,7 +128,7 @@ AFRAME.registerComponent('norman', {
     Object.assign(this, {secondaryHand, primaryHand})
 
     primaryHand.addEventListener('triggerdown', () => this.handlePrimaryTriggerDown())
-    primaryHand.addEventListener('triggerup', () => this.handlePrimaryTriggerUp()) 
+    primaryHand.addEventListener('triggerup', () => this.handlePrimaryTriggerUp())
     primaryHand.addEventListener('gripdown', e => this.handlePrimaryGripDown(e))
     primaryHand.addEventListener('gripup', e => this.handlePrimaryGripUp(e))
     primaryHand.addEventListener('upperbuttondown', () => this.handlePrimaryUpperButtonDown())
@@ -322,7 +322,7 @@ AFRAME.registerComponent('norman', {
       selectedTrackComp.gotoPrevFrame()
     }
   },
- 
+
   handleSecondaryLeftOff() {
     this.autoPrev = false
   },
@@ -330,7 +330,7 @@ AFRAME.registerComponent('norman', {
   handleSecondaryRightOn() {
     const {isInsertMode, selectedTrackComp, selectedTrackEnt, pen, isDrawing} = this,
           pos = selectedTrackComp.getLocalPenPos(pen.position)
-    
+
     this.autoNext = true
 
     // insert straight-line flag here
@@ -343,7 +343,7 @@ AFRAME.registerComponent('norman', {
     } else {
       selectedTrackComp.gotoNextFrame()
     }
-    
+
     // insert straight-line flag here
     if (isDrawing) {
       selectedTrackComp.startLine(pos)
@@ -357,7 +357,7 @@ AFRAME.registerComponent('norman', {
   handleSecondaryThumbstickDown() {
     const {isInsertMode, selectedTrackComp} = this
     if (isInsertMode) selectedTrackComp.removeFrame()
-  }, 
+  },
 
   // MODIFIERS
 
@@ -368,7 +368,7 @@ AFRAME.registerComponent('norman', {
           {el, tracks} = this
 
     animEnt.setAttribute('anim', {
-      norman: '#norman', 
+      norman: '#norman',
       animData: (!trackData) ? [[]] : trackData
     })
     el.appendChild(animEnt)
@@ -477,7 +477,7 @@ AFRAME.registerComponent('norman', {
 
     } else {
       this.grabbedBy = hand
-      
+
       const {el} = this,
             handObj3D = hand.object3D,
             normObj3D = el.object3D
@@ -510,7 +510,7 @@ AFRAME.registerComponent('norman', {
         z: radToDeg(rot.z)
       })
     }
-    
+
   },
 
   togglePlay() {
@@ -562,6 +562,3 @@ AFRAME.registerComponent('norman', {
 
 
 })
-
-
-
